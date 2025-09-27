@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title_page %}{% if form.instance.pk %}Edit {% else %}Create {% endif%}{% endblock %}
+
+{% block header %}{% if form.instance.pk %}Edit Diary Entry{% else %}Create a Diary Entry{% endif%}{% endblock %}
+
+{% block content %}
+
+<form method="post" class="entry-form">
+  {% csrf_token %}
+  
+</form>
+
+{% endblock %}

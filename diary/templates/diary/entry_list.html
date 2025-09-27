@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title_page %}Diary Entries{% endblock %}
+
+{% block header %}Diary Entries{% endblock %}
+
+{% block content %}
+
+{% if entries %}
+
+<ul class="list-entries">
+  {% for entry in entries %}
+  <li class="items">
+    <a href="{% url 'entry_detail' entry.id %}">{{entry.title}}</a>
+    <div class="date">{{entry.created_at}}</div>
+    <div class="function">
+      <a class="edit-btn" href="% url 'entry_form_update' entry.id %">Edit</a>
+      <a class="delete-btn" href="% url 'entry_delete' entry.id %">Delete</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="no-entry-msg">No Entries Yet....</p>
+{% endif %}
+
+{% endblock %}
+
