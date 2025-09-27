@@ -37,7 +37,7 @@ const grid_create = () => {
 const new_load = () => {
   selector.classList.add('scale-70');
   selector.classList.remove('flex-col', 'space-y-5', 'flex-1');
-  selector.classList.add('flex-row', 'space-x-7', 'h-24');
+  selector.classList.add('flex-row', 'space-x-7', 'h-22');
   grid.innerHTML = '';
 };
 
