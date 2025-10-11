@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title_page %}{% if form.instance.pk %}Edit {% else %}Create {% endif%}{% endblock %}
+{% block title_page %}{% if form.instance.pk %}Edit {% else %}Create {% endif %}{% endblock %}
 
 {% block header %}{% if form.instance.pk %}Edit Diary Entry{% else %}Create a Diary Entry{% endif%}{% endblock %}
 
@@ -8,6 +8,15 @@
 
 <form method="post" class="entry-form">
   {% csrf_token %}
+  {{ form.as_p }}
+  <div>
+    <button type="submit">
+      {% if form.instance.pk %} Update {% else %} Create {% endif %}
+    </button>
+    <a href={% url 'entry_list' %}>
+      Cancel
+    </a>
+  </div>
   
 </form>
 

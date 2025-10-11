@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title_page %} {{ curr.title }} {% endblock %}
+{% block header %} {{ curr.title }} {% endblock %}
+
+{% block content %}
+
+<h1>{{ curr.title }}</h1>
+
+<h2>Created At:</h2>
+<p>{{ curr.created_at }}</p>
+
+<p>{{ curr.content }}</p>
+
+<h2>Updated At:</h2>
+<p>
+  {% if curr.updated_at %}
+    {{ curr.updated_at }}
+  {% else %}
+    Not updated yet.
+  {% endif %}
+</p>
+
+<p>
+  <a href="{% url 'entry_form_update' curr.id %}">Edit</a>
+  <a href="{% url 'entry_delete' curr.id %}">Delete</a>
+  <a href="{% url 'entry_list' %}">Back</a>
+</p>
+
+{% endblock %}
